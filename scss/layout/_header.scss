@@ -1,0 +1,215 @@
+/* HEADER */
+
+header{
+    .top-nav {
+        @include flex(row, space-between, center);
+        height: 55px;
+        padding: 10px 10px 10px 0px;
+        .header__logo {
+            height: 55px;
+            width: auto;
+        }
+    }
+     
+    /* MENÚ HAMBURGUESA */
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+      
+    .menu > li {
+        padding: 0px 9.6px;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: all 0.4s ease;
+                &:hover {
+                    transform: translateY(-3px);
+                    transition: all 0.4s ease;
+                }
+                &:last-child {
+                    padding: 0px 5px 0px 9.6px;
+                }
+    }
+
+    .header__li {
+            border-right: 1px solid $color-gris;
+            padding-right: 10px;
+    }
+
+    a {
+        text-decoration: none;
+        color: $color-gris;
+            &:hover {
+                color: $color-gris;
+            }
+    }
+      
+    .menu-button-container {
+        display: none;
+        height: 100%;
+        width: 30px;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+      
+    #menu-toggle {
+        display: none;
+    }
+      
+    .menu-button,
+    .menu-button::before,
+    .menu-button::after {
+        display: block;
+        background-color: $color-gris;
+        position: absolute;
+        height: 4px;
+        width: 30px;
+        transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        border-radius: 2px;
+    }
+      
+    .menu-button::before {
+        content: '';
+        margin-top: -8px;
+    }
+      
+    .menu-button::after {
+        content: '';
+        margin-top: 8px;
+    }
+      
+    #menu-toggle:checked + .menu-button-container .menu-button::before {
+        margin-top: 0px;
+        transform: rotate(405deg);
+    }
+      
+    #menu-toggle:checked + .menu-button-container .menu-button {
+        background: rgba(255, 255, 255, 0);
+    }
+      
+    #menu-toggle:checked + .menu-button-container .menu-button::after {
+        margin-top: 0px;
+        transform: rotate(-405deg);
+    }
+      
+    @media (max-width: 768px) {
+        .menu-button-container {
+          display: flex;
+        }
+        .menu {
+          position: absolute;
+          top: 0;
+          margin-top: 50px;
+          left: 0;
+          flex-direction: column;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+        }
+        #menu-toggle ~ .menu li {
+          height: 0;
+          margin: 0;
+          padding: 0;
+          border: 0;
+          transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        #menu-toggle:checked ~ .menu li {
+          border-bottom: 1px solid $color-gris;
+          height: 2.5em;
+          padding: 0.5em;
+          transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .menu > li {
+          display: flex;
+          justify-content: center;
+          margin: 0;
+          padding: 0.5em 0;
+          width: 100%;
+          background-color: $color-claro;
+        }
+        .menu > li:last-child {
+          border-bottom: 1px solid $color-claro !important;
+        }
+    }
+
+    /* Fin MENÚ HAMBURGUESA */  
+    
+    .header__img {
+        background-image: url(../img/mar_loros-2-2048x1536.jpeg);
+        width: 100%;
+        height: 500px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        @include flex(row, center, center);
+        h1 {
+            text-transform: uppercase;
+            font-size: 80px;
+            color: $color-claro;
+        }
+    }
+    
+    .headerPages__img {
+        background-image: url(../img/mar_loros-2-2048x1536.jpeg);
+        width: 100%;
+        height: 500px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        @include flex(row, flex-start, flex-end);
+        .headerPages__h1 {
+            text-transform: uppercase;
+            font-size: 100px;
+            color: $color-claro;
+            margin-left: 40px;
+            margin-bottom: 18px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        .header__img {
+            h1 {
+                font-size: 60px;
+            }
+        }
+        .headerPages__img {
+            @include flex(row, center, center);
+            .headerPages__h1 {
+                font-size: 70px;
+                margin-left: 0;
+                margin-bottom: 0;
+            }
+        }
+    } 
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        .header__img {
+            h1 {
+                font-size: 32px;
+            } 
+        }
+        .headerPages__img {
+            .headerPages__h1 {
+                font-size: map-get($font-sz, xxl);
+            }
+        }
+    }
+}
+
+/* Fin HEADER */
+
+
+
+

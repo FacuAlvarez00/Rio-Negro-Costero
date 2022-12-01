@@ -1,0 +1,122 @@
+/* INDEX */
+
+.atajosIndex {
+    @include flex(row, center, center);
+    padding: $padding-secciones;
+    width: 100%;
+    .atajosIndex__item {
+        @include flex(column, center, center);
+        padding: 0px 60px;
+        width: 20%;
+        text-align: center;
+        .atajosIndex__svg-gris {
+            height: 25px;
+            margin: 15px 0px;
+            fill: #606060;
+        }
+        .atajosIndex__headings {
+            text-transform: uppercase;
+            font-size: map-get($font-sz, m);
+            font-weight: 700;
+            margin: 15px 0px;
+                &:hover{
+                    animation: fadein 0.45s;
+                }
+        }
+        .atajosIndex__links {
+            text-decoration: none;
+            color: $color-gris;
+                &:hover{
+                    color: $color-gris;
+                }
+        }
+    }
+}
+
+@keyframes fadein {
+    0% {
+    opacity:0;
+    }
+    25% {
+    opacity: 0.25;
+    }
+    50%{
+    opacity:0.5;
+    }
+    75% {
+    opacity: 0.75s;
+    }
+    100% {
+    opacity:1;
+    }
+}
+
+.carousel-custom{
+    img {
+        height: 500px;
+        object-fit: cover;
+    }
+    .carousel_img1 {
+        object-position: top;
+    }
+} 
+
+.destacados {
+    padding: $padding-secciones;
+    .destacados__heading {
+        text-transform: uppercase;
+        font-size: map-get($font-sz, xl);
+        font-weight: 700;
+    }
+}
+
+.contactoIndex {
+    background-image: url(../img/playadesdearriba.jpeg);
+    width: 100%;
+    height: 500px;
+    @include flex(row, center, center);
+    .contactoIndex__box {
+        @include flex(column, space-evenly, center);
+        height: 200px;
+        width: 400px;
+        color: $color-claro;
+        font-size: map-get($font-sz, xl);
+        text-transform: uppercase;
+        text-align: center;
+    } 
+}
+
+@media screen and (max-width: 768px) {
+    .atajosIndex {
+        .atajosIndex__item {
+            padding: 0px 30px;
+            width: 40%;
+        }
+    }  
+}
+
+@media screen and (max-width: 480px) {
+    .atajosIndex {
+        .atajosIndex__item {
+            .atajosIndex__headings {
+                font-size: map-get($font-sz, s);
+            }
+        }
+    }
+    .destacados {
+        .destacados__heading {
+            font-size: map-get($font-sz, m);
+        }
+    }
+    .contactoIndex {
+        .contactoIndex__box {
+            width: 100%;
+            font-size: map-get($font-sz, l);
+            .contactoIndex__button {
+                font-size: map-get($font-sz, s);
+            }
+        }
+    }
+}
+
+/* Fin INDEX */
